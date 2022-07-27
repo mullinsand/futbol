@@ -36,41 +36,6 @@ class StatTracker
     total_scores.min
   end
 
-  def percentage_home_wins
-    home_wins = 0.0
-    total_games = 0.0
-    @all_data_hash[:games].each do |row|
-      if row[:home_goals].to_i > row[:away_goals].to_i
-        home_wins += 1
-      end
-      total_games += 1
-    end
-    percentage = (home_wins / total_games).round(2)
-  end
-
-  def percentage_vistor_wins
-    vistor_wins = 0.0
-    total_games = 0.0
-    @all_data_hash[:games].each do |row|
-      if row[:away_goals].to_i > row[:home_goals].to_i
-        vistor_wins += 1
-      end
-      total_games += 1
-    end
-    vistor_percentage = (vistor_wins / total_games).round(2)
-  end
-
-  def percentage_ties
-    ties = 0.0
-    total_games = 0.0
-    @all_data_hash[:games].each do |row|
-      if row[:away_goals].to_i == row[:home_goals].to_i
-        ties += 1
-      end
-      total_games += 1 
-    end
-    tie_percentage = (ties / total_games).round(2)
-
   def average_goals_per_game
     total_scores = @all_data_hash[:games].map do |row|
       home_goals = row[:home_goals].to_i
