@@ -93,7 +93,7 @@ RSpec.describe Game do
   describe '#tie' do
     it "returns true with a tie" do
 
-      expect(@game.tie?).to be false4
+      expect(@game.tie?).to be false
     end
   end
 

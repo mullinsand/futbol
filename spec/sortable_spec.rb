@@ -15,8 +15,13 @@ describe Sortable do
     @stat_tracker = StatTracker.from_csv(locations)
   end
 
-  xit '#sort_games_by_season' do
-
+  it '#sort_games_by_season' do
+    expect(@stat_tracker.league.sort_games_by_season(@stat_tracker.league.all_games).keys).to eq(
+      ["20132014", "20142015", "20152016"]
+    )
+    expect(@stat_tracker.league.sort_games_by_season(@stat_tracker.league.all_games)["20142015"].first.game_id).to eq(
+      "2014020868"
+    )
   end
 
   it '#goals_by_season' do
