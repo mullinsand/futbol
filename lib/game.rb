@@ -58,4 +58,8 @@ class Game
   def tie?
     @home_goals.to_i == @away_goals.to_i
   end
+
+  def total_goals
+    @home_goals.to_i + @away_goals.to_i
+  end
 end

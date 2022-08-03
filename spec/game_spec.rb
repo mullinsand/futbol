@@ -97,11 +97,17 @@ RSpec.describe Game do
     end
   end
 
-  describe 'opponent_id' do
+  describe '#opponent_id' do
     it 'gives the opponent based on a team_id argument' do
       expect(@game.opponent_id("3")).to eq("6")
       expect(@game.opponent_id("6")).to eq("3")
       expect(@game.opponent_id("7")).to eq("that team didn't play")
+    end
+  end
+
+  describe '#total_goals' do
+    it 'adds home goals and away goals' do
+      expect(@game.total_goals).to eq(5)
     end
   end
 end

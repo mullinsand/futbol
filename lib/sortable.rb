@@ -9,7 +9,7 @@ module Sortable
   def goals_by_season
     goals_by_season = Hash.new {|h,k| h[k]=[]}
     @all_games.each do |game|
-      goals_by_season[game.season] << (game.home_goals.to_i + game.away_goals.to_i)
+      goals_by_season[game.season] << game.total_goals
     end
     goals_by_season
   end
